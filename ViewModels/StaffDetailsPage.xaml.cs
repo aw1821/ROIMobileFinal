@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using System;
 using System.IO;
 using System.Diagnostics;
+using System.Threading.Tasks;
 namespace ROIMobileFinal;
 
 public partial class StaffDetailsPage : ContentPage
@@ -22,10 +23,58 @@ public partial class StaffDetailsPage : ContentPage
 
         if (staff != null)
         {
-            NameLabel.Text = staff.Name;
-            EmailLabel.Text = staff.Email;
-            MobileLabel.Text = staff.Mobile;
-            PhoneLabel.Text = staff.Phone;
+            NameEntry.Text = staff.Name;
+            EmailEntry.Text = staff.Email;
+            MobileEntry.Text = staff.Mobile;
+            PhoneEntry.Text = staff.Phone;
         }
+    }
+    private void OnEditClicked(object sender, EventArgs e)
+    {
+        // Enable editing
+        NameEntry.IsReadOnly = false;
+        EmailEntry.IsReadOnly = false;
+        MobileEntry.IsReadOnly = false;
+        PhoneEntry.IsReadOnly = false;
+
+        // Show the Save button
+        ((Button)sender).IsVisible = false;
+        SaveButton.IsVisible = true;
+    }
+    private async void OnSaveClickedAsync(object sender, EventArgs e)
+    {
+        // Update the staff details in the database
+        var staff = new Staff
+        {
+            StaffID = _staffID,
+            Name = NameEntry.Text,
+            Email = EmailEntry.Text,
+            Mobile = MobileEntry.Text,
+            Phone = PhoneEntry.Text
+        };
+
+        _database.UpdateStaff(staff);
+
+        // Disable editing
+        NameEntry.IsReadOnly = true;
+        EmailEntry.IsReadOnly = true;
+        MobileEntry.IsReadOnly = true;
+        PhoneEntry.IsReadOnly = true;
+
+        // Show the Edit button
+        ((Button)sender).IsVisible = false;
+        EditButton.IsVisible = true;
+
+        PopupMessageFrame.IsVisible = true;
+        await Task.Delay(2000);
+        PopupMessageFrame.IsVisible = false;
+    }
+    private void OnGoToHomeClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
+    private void OnGoToStaffDirectoryClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new StaffDirectoryPage());
     }
 }

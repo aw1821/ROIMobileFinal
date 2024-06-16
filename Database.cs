@@ -120,6 +120,23 @@ public class Database
         deleteCmd.Parameters.AddWithValue("@StaffID", staffID);
         deleteCmd.ExecuteNonQuery();
     }
+
+    public void UpdateStaff(Staff staff)
+    {
+        using var connection = new SqliteConnection($"Data Source={_databasePath}");
+        connection.Open();
+
+        var updateCmd = connection.CreateCommand();
+        updateCmd.CommandText = @"UPDATE Staff 
+                              SET Name = @Name, Email = @Email, Mobile = @Mobile, Phone = @Phone 
+                              WHERE StaffID = @StaffID;";
+        updateCmd.Parameters.AddWithValue("@Name", staff.Name);
+        updateCmd.Parameters.AddWithValue("@Email", staff.Email);
+        updateCmd.Parameters.AddWithValue("@Mobile", staff.Mobile);
+        updateCmd.Parameters.AddWithValue("@Phone", staff.Phone);
+        updateCmd.Parameters.AddWithValue("@StaffID", staff.StaffID);
+        updateCmd.ExecuteNonQuery();
+    }
 }
 
 public class Staff

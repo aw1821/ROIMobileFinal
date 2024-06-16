@@ -20,9 +20,21 @@ public partial class StaffDirectoryPage : ContentPage
 
     private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        if (e.SelectedItem is Staff selectedStaff)
+        /*if (e.SelectedItem is Staff selectedStaff)
         {
             await Navigation.PushAsync(new StaffDetailsPage(selectedStaff.StaffID));
+        }*/
+        if (e.SelectedItem is Staff selectedStaff)
+        {
+            // Deselect the item immediately to allow re-selection
+            ((ListView)sender).SelectedItem = null;
+
+            // Navigate to the StaffDetailsPage
+            await Navigation.PushAsync(new StaffDetailsPage(selectedStaff.StaffID));
         }
+    }
+    private void OnGoToHomeClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
     }
 }
