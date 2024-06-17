@@ -77,4 +77,10 @@ public partial class StaffDetailsPage : ContentPage
     {
         Navigation.PushAsync(new StaffDirectoryPage());
     }
+    private void OnDeleteDatabaseClicked(object sender, EventArgs e)
+    {
+        var database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "staff.db"));
+        database.DeleteDatabase();
+    }
+
 }

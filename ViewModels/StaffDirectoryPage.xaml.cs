@@ -33,8 +33,18 @@ public partial class StaffDirectoryPage : ContentPage
             await Navigation.PushAsync(new StaffDetailsPage(selectedStaff.StaffID));
         }
     }
+    private async void OnAddStaffClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddStaffPage());
+    }
     private void OnGoToHomeClicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MainPage());
     }
+    private void OnDeleteDatabaseClicked(object sender, EventArgs e)
+    {
+        var database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "staff.db"));
+        database.DeleteDatabase();
+    }
+
 }

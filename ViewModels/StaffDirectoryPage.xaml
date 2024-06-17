@@ -20,6 +20,9 @@
             <VerticalStackLayout>
                 <StackLayout>
                     <Label Text="Staff Directory" FontSize="24" HorizontalOptions="Center"/>
+                    <Button Text="Add Staff" Clicked="OnAddStaffClicked"/>
+                    <Button Text="Delete Database" Clicked="OnDeleteDatabaseClicked" />
+
                     <ListView x:Name="StaffListView" ItemSelected="OnItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>

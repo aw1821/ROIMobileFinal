@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System;
+using System.Diagnostics;
 
 public class Database
 {
@@ -26,8 +27,8 @@ public class Database
                                     StaffID INTEGER PRIMARY KEY AUTOINCREMENT,
                                     Name NVARCHAR(50),
                                     Email NVARCHAR(50),
-                                    Mobile NVARCHAR(10),
-                                    Phone NVARCHAR(10)
+                                    Mobile INTEGER(10),
+                                    Phone INTEGER(10)
                                 );";
         tableCmd.ExecuteNonQuery();
 
@@ -137,6 +138,20 @@ public class Database
         updateCmd.Parameters.AddWithValue("@StaffID", staff.StaffID);
         updateCmd.ExecuteNonQuery();
     }
+
+    public void DeleteDatabase()
+    {
+        if (File.Exists(_databasePath))
+        {
+            File.Delete(_databasePath);
+            Debug.WriteLine("Database deleted successfully.");
+        }
+        else
+        {
+            Debug.WriteLine("Database file not found.");
+        }
+    }
+
 }
 
 public class Staff

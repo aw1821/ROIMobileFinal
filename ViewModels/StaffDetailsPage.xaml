@@ -14,6 +14,7 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
+        <!-- Main Content -->
         <ScrollView Grid.Row="1">
         <VerticalStackLayout>
             <StackLayout>
@@ -22,11 +23,13 @@
                     <Label Text="Email:" />
                     <Entry x:Name="EmailEntry" IsReadOnly="True" />
                     <Label Text="Mobile:" />
-                    <Entry x:Name="MobileEntry" IsReadOnly="True" />
+                    <Entry x:Name="MobileEntry" IsReadOnly="True" Keyboard="Numeric" MaxLength="10"/>
                     <Label Text="Phone:" />
-                    <Entry x:Name="PhoneEntry" IsReadOnly="True" />
+                    <Entry x:Name="PhoneEntry" IsReadOnly="True" Keyboard="Numeric" MaxLength="10"/>
                     <Button x:Name="EditButton" Text="Edit" Clicked="OnEditClicked" />
                     <Button x:Name="SaveButton" Text="Save" Clicked="OnSaveClickedAsync" IsVisible="False" />
+                    <Button Text="Delete Database" Clicked="OnDeleteDatabaseClicked" />
+
                     <Frame x:Name="PopupMessageFrame" BackgroundColor="LightGreen" IsVisible="False" Padding="10" CornerRadius="10">
                         <Label x:Name="PopupMessageLabel" Text="Saved successfully!" HorizontalOptions="Center" VerticalOptions="Center" />
                     </Frame>
