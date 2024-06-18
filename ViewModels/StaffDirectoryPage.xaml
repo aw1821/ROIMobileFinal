@@ -2,15 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ROIMobileFinal.StaffDirectoryPage"
-             Title="">
+             Title=""
+             Shell.NavBarIsVisible="False">
     <Grid RowDefinitions="Auto, *, Auto">
         <!-- Banner Section -->
         <StackLayout BackgroundColor="Maroon" Padding="10" Grid.Row="0">
-            <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
-                <Image Source="profile_placeholder.png" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" />
-                <StackLayout Grid.Column="1" Padding="10,0" VerticalOptions="Center">
-                    <Label Text="Welcome (Staff)" FontSize="24" TextColor="White" />
-                    <Label Text="Email/Other details" FontSize="14" TextColor="White" />
+            <Grid BackgroundColor="Maroon" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="profile_placeholder.png" WidthRequest="60" HeightRequest="60" Margin="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0">
+                    <Label Text="Welcome Alan" TextColor="White" FontSize="20"/>
+                    <Label Text="awoo@gmail.com" TextColor="White" FontSize="14"/>
                 </StackLayout>
             </Grid>
         </StackLayout>
@@ -18,58 +24,41 @@
         <!-- Main Content -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout>
-                <StackLayout>
-                    <Label Text="Staff Directory" FontSize="24" HorizontalOptions="Center"/>
-                    <Button Text="Add Staff" Clicked="OnAddStaffClicked"/>
-                    <Button Text="Delete Database" Clicked="OnDeleteDatabaseClicked" />
-
-                    <ListView x:Name="StaffListView" ItemSelected="OnItemSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding Name}" Detail="{Binding Email}"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                <SearchBar Placeholder="Search contacts(Name, Email)" TextChanged="OnSearchBarTextChanged" />
+                <ListView x:Name="StaffListView" ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Image Source="profile_placeholder.png" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" />
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Email}" FontAttributes="Italic"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </VerticalStackLayout>
         </ScrollView>
 
         <!-- Navigation Buttons -->
-        <Grid Grid.Row="2" Padding="10" BackgroundColor="LightGray">
+        <Grid Grid.Row="2" Padding="10" BackgroundColor="Maroon">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Button Text="Home"
-            Grid.Column="0"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"
-                    Clicked="OnGoToHomeClicked"/>
-            <Button Text="Staff Directory"
-            Grid.Column="1"
-            BackgroundColor="Maroon"
-            Style="{StaticResource HighlightedButtonStyle}"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"
-            />
-            <Button Text="Calendar"
-            Grid.Column="2"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"/>
-            <Button Text="Settings"
-            Grid.Column="3"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"/>
         </Grid>
+        <StackLayout Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="End" Grid.Row="2">
+            <Button Text="Home" BackgroundColor="Maroon" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add Staff" BackgroundColor="Maroon" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <Button Text="+" FontSize="24" TextColor="White" BackgroundColor="Orange" CornerRadius="30" WidthRequest="60" HeightRequest="60" HorizontalOptions="End" VerticalOptions="End" Margin="20" Clicked="OnAddStaffClicked"/>
     </Grid>
 </ContentPage>

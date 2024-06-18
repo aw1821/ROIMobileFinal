@@ -1,14 +1,47 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:CommonPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:local="clr-namespace:ROIMobileFinal"
-                  x:Class="ROIMobileFinal.MainPage"
-                  Title="Home">
-    <ContentView x:Name="PageContent">
-        <VerticalStackLayout>
-            <Label Text="Welcome to the Home Page" 
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
-        </VerticalStackLayout>
-    </ContentView>
-</local:CommonPage>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ROIMobileFinal.MainPage"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Top Content Bar -->
+        <Grid BackgroundColor="DarkRed" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="profile_placeholder.png" WidthRequest="60" HeightRequest="60" Margin="10" Grid.Column="0"/>
+            <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0">
+                <Label Text="Welcome Alan" TextColor="White" FontSize="20"/>
+                <Label Text="awoo@gmail.com" TextColor="White" FontSize="14"/>
+            </StackLayout>
+        </Grid>
+
+        <!-- Content Area -->
+        <ScrollView Grid.Row="1" Grid.Column="0">
+            <StackLayout Padding="10" Spacing="5">
+                <Label Text="Red Opal Innovations" FontSize="20" FontAttributes="Bold"/>
+                <Label FontSize="14">
+                    ROI is a multimedia company that commenced operations in 2010. They design and develop websites, multimedia products and graphic design products.
+                    ROI has the following departments:
+                    • Development: carries out the creation of dynamic websites and graphic design.{"\n"}
+                    • Multimedia Productions: including video, post production and animation.{"\n"}
+                    • Sales and Marketing: works on advertising campaigns, the company’s social media presence, attends industry and community events, visits clients and identifies prospective clients.{"\n"}
+                    • Human Resources: manages the recruitment of full time and contract staff and their entitlements such as leave and superannuation.{"\n"}
+                    • Accounts: looks after the payments into and out of the company (accounts payable and receivable).
+                    To date, the company employs 40 full time staff with up to 20 additional contract staff used to cover specific projects.
+                    In the last few years, ROI has experienced a strong growth of 20-30% per year and have added more full-time side as a result. As a consequence, their disparate and manual human resource systems have become outdated.
+                </Label>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" Grid.Row="2">
+            <Button Text="Home" BackgroundColor="Maroon" Clicked="OnHomeClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" Clicked="OnStaffDirectoryClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add Staff" BackgroundColor="Maroon" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" Clicked="OnSettingsClicked" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

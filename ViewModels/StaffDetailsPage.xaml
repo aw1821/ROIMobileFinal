@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ROIMobileFinal.StaffDetailsPage"
-             Title="StaffDetailsPage">
+             Title="StaffDetailsPage"
+             Shell.NavBarIsVisible="False">
     <Grid RowDefinitions="Auto, *, Auto">
         <!-- Banner Section -->
         <StackLayout BackgroundColor="Maroon" Padding="10" Grid.Row="0">

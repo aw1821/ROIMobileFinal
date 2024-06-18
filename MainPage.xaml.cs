@@ -1,20 +1,31 @@
 ﻿using Microsoft.Maui.Controls;
-using System;
-namespace ROIMobileFinal
+
+namespace ROIMobileFinal;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnGoToStaffDirectoryClicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new StaffDirectoryPage());
-        }
+        InitializeComponent();
     }
 
+    private void OnHomeClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
+
+    private void OnStaffDirectoryClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new StaffDirectoryPage());
+    }
+
+    private void OnAddStaffClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AddStaffPage());
+    }
+
+    private void OnSettingsClicked(object sender, EventArgs e)
+    {
+        // Navigation.PushAsync(new SettingsPage());
+    }
 }
