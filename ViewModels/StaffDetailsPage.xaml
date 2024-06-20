@@ -7,11 +7,16 @@
     <Grid RowDefinitions="Auto, *, Auto">
         <!-- Banner Section -->
         <StackLayout BackgroundColor="Maroon" Padding="10" Grid.Row="0">
-            <Grid ColumnDefinitions="Auto, *" VerticalOptions="Center">
-                <Image Source="profile_placeholder.png" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" />
-                <StackLayout Grid.Column="1" Padding="10,0" VerticalOptions="Center">
-                    <Label Text="Welcome (Staff)" FontSize="24" TextColor="White" />
-                    <Label Text="Email/Other details" FontSize="14" TextColor="White" />
+            <Grid BackgroundColor="Maroon" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="profile_placeholder.png" WidthRequest="60" HeightRequest="60" Margin="10" Grid.Column="0"/>
+                <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0">
+                    <Label Text="Welcome Alan" TextColor="White" FontSize="20"/>
+                    <Label Text="awoo@gmail.com" TextColor="White" FontSize="14"/>
                 </StackLayout>
             </Grid>
         </StackLayout>
@@ -27,9 +32,9 @@
                     <Entry x:Name="MobileEntry" IsReadOnly="True" Keyboard="Numeric" MaxLength="10"/>
                     <Label Text="Phone:" />
                     <Entry x:Name="PhoneEntry" IsReadOnly="True" Keyboard="Numeric" MaxLength="10"/>
-                    <Button x:Name="EditButton" Text="Edit" Clicked="OnEditClicked" />
-                    <Button x:Name="SaveButton" Text="Save" Clicked="OnSaveClickedAsync" IsVisible="False" />
-                    <Button Text="Delete Database" Clicked="OnDeleteDatabaseClicked" />
+                    <Button x:Name="EditButton" Text="Edit" Clicked="OnEditClicked" BackgroundColor="Maroon" TextColor="White" WidthRequest="100"/>
+                    <Button x:Name="SaveButton" Text="Save" Clicked="OnSaveClickedAsync" IsVisible="False" BackgroundColor="Maroon" TextColor="White" WidthRequest="100"/>
+                    <Button Text="Delete Staff" BackgroundColor="Maroon" TextColor="White" WidthRequest="100" Clicked="OnDeleteStaffClicked"/>
 
                     <Frame x:Name="PopupMessageFrame" BackgroundColor="LightGreen" IsVisible="False" Padding="10" CornerRadius="10">
                         <Label x:Name="PopupMessageLabel" Text="Saved successfully!" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -39,42 +44,22 @@
         </ScrollView>
 
         <!-- Navigation Buttons -->
-        <Grid Grid.Row="2" Padding="10" BackgroundColor="LightGray">
+        <Grid Grid.Row="2" Padding="10" BackgroundColor="Maroon">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Button Text="Home"
-            Grid.Column="0"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"
-                    Clicked="OnGoToHomeClicked"/>
-            <Button Text="Staff Directory"
-            Grid.Column="1"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"
-            Clicked="OnGoToStaffDirectoryClicked"
-            />
-            <Button Text="Calendar"
-            Grid.Column="2"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"/>
-            <Button Text="Settings"
-            Grid.Column="3"
-            BackgroundColor="Maroon"
-            TextColor="White"
-            CornerRadius="20"
-            HeightRequest="60"/>
         </Grid>
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" Grid.Row="2">
+            <Button Text="Home" BackgroundColor="Maroon" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add Staff" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+
     </Grid>
 
 </ContentPage>

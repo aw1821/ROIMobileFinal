@@ -44,19 +44,12 @@
         </ScrollView>
 
         <!-- Navigation Buttons -->
-        <Grid Grid.Row="2" Padding="10" BackgroundColor="Maroon">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-        </Grid>
-        <StackLayout Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="End" Grid.Row="2">
-            <Button Text="Home" BackgroundColor="Maroon" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Staff Directory" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Add Staff" BackgroundColor="Maroon" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Settings" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+        
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" Grid.Row="2">
+            <Button Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add Staff" BackgroundColor="Maroon" TextColor="White" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <Button Text="+" FontSize="24" TextColor="White" BackgroundColor="Orange" CornerRadius="30" WidthRequest="60" HeightRequest="60" HorizontalOptions="End" VerticalOptions="End" Margin="20" Clicked="OnAddStaffClicked"/>

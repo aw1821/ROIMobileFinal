@@ -38,10 +38,10 @@
 
         <!-- Bottom Navigation Bar -->
         <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" Grid.Row="2">
-            <Button Text="Home" BackgroundColor="Maroon" Clicked="OnHomeClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Staff Directory" BackgroundColor="Maroon" Clicked="OnStaffDirectoryClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Add Staff" BackgroundColor="Maroon" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Settings" BackgroundColor="Maroon" Clicked="OnSettingsClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="OnHomeClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" TextColor="White" Clicked="OnStaffDirectoryClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add Staff" BackgroundColor="Maroon" TextColor="White" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" TextColor="White" Clicked="OnSettingsClicked" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </Grid>
 </ContentPage>

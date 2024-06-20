@@ -12,7 +12,7 @@
             <Entry x:Name="MobileEntry" Placeholder="Enter Mobile" Keyboard="Numeric" MaxLength="10"/>
             <Label Text="Phone:" />
             <Entry x:Name="PhoneEntry" Placeholder="Enter Phone" Keyboard="Numeric" MaxLength="10"/>
-            <Button Text="Save" Clicked="OnSaveClicked"/>
+            <Button x:Name="SaveButton" Text="Save" BackgroundColor="Maroon" TextColor="White" WidthRequest="100" Clicked="OnSaveClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

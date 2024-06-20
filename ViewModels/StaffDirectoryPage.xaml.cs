@@ -52,6 +52,11 @@ public partial class StaffDirectoryPage : ContentPage
         var database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "staff.db"));
         database.DeleteDatabase();
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        LoadStaff(); // Refresh the staff list when the page appears
+    }
 
     private void OnSearchBarTextChanged(object sender, TextChangedEventArgs e)
     {

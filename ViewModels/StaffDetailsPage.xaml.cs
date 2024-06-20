@@ -77,10 +77,15 @@ public partial class StaffDetailsPage : ContentPage
     {
         Navigation.PushAsync(new StaffDirectoryPage());
     }
-    private void OnDeleteDatabaseClicked(object sender, EventArgs e)
+    private async void OnDeleteStaffClicked(object sender, EventArgs e)
     {
-        var database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "staff.db"));
-        database.DeleteDatabase();
+        bool confirm = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this staff?", "Yes", "No");
+        if (confirm)
+        {
+            _database.DeleteStaff(_staffID);
+            await DisplayAlert("Deleted", "Staff deleted successfully", "OK");
+            await Navigation.PopAsync(); // Navigate back to the Staff Directory page
+        }
     }
 
 }

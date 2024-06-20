@@ -15,7 +15,8 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:StaffDirectoryPage}"
         Route="StaffDirectory" />
-    <ShellContent Title="Add Staff" 
-                  ContentTemplate="{DataTemplate local:AddStaffPage}" 
-                  Route="AddStaffPage" />
+    <ShellContent 
+        Title="Add Staff" 
+        ContentTemplate="{DataTemplate local:AddStaffPage}" 
+        Route="AddStaffPage" />
 </Shell>
