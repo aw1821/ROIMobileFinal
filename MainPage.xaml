@@ -21,8 +21,8 @@
         <!-- Content Area -->
         <ScrollView Grid.Row="1" Grid.Column="0">
             <StackLayout Padding="10" Spacing="5">
-                <Label Text="Red Opal Innovations" FontSize="20" FontAttributes="Bold"/>
-                <Label FontSize="14">
+                <Label Text="Red Opal Innovations" FontSize="{DynamicResource GlobalFontSize}" FontAttributes="Bold"/>
+                <Label FontSize="{DynamicResource GlobalFontSize}">
                     ROI is a multimedia company that commenced operations in 2010. They design and develop websites, multimedia products and graphic design products.
                     ROI has the following departments:
                     • Development: carries out the creation of dynamic websites and graphic design.{"\n"}

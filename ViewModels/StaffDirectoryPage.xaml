@@ -32,8 +32,8 @@
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <Image Source="profile_placeholder.png" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" />
                                     <StackLayout VerticalOptions="Center">
-                                        <Label Text="{Binding Name}" FontAttributes="Bold"/>
-                                        <Label Text="{Binding Email}" FontAttributes="Italic"/>
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="{DynamicResource GlobalFontSize}"/>
+                                        <Label Text="{Binding Email}" FontAttributes="Italic" FontSize="{DynamicResource GlobalFontSize}"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -49,7 +49,7 @@
             <Button Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
             <Button Text="Staff Directory" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="FillAndExpand"/>
             <Button Text="Add Staff" BackgroundColor="Maroon" TextColor="White" Clicked="OnAddStaffClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Settings" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" TextColor="White" Clicked="OnSettingsClicked" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <Button Text="+" FontSize="24" TextColor="White" BackgroundColor="Orange" CornerRadius="30" WidthRequest="60" HeightRequest="60" HorizontalOptions="End" VerticalOptions="End" Margin="20" Clicked="OnAddStaffClicked"/>

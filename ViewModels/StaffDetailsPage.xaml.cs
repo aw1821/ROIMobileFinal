@@ -7,8 +7,11 @@ namespace ROIMobileFinal;
 
 public partial class StaffDetailsPage : ContentPage
 {
+    // Define Variables, Database and StaffID using the Database class to interact with the SQLite database
     private Database _database;
     private int _staffID;
+    
+    //This is the constructor for the StaffDetailsPage class. It initializes the page with the staff details based on the staffID provided.
     public StaffDetailsPage(int staffID)
 	{
 		InitializeComponent();
@@ -17,6 +20,7 @@ public partial class StaffDetailsPage : ContentPage
         Debug.WriteLine($"This is the pathway to the database: {_database.GetDatabasePath()}");
         LoadStaffDetails();
     }
+    //This method loads the staff details from the database and populates the entry fields on the page.
     private void LoadStaffDetails()
     {
         var staff = _database.GetStaffDetails(_staffID);
@@ -29,6 +33,7 @@ public partial class StaffDetailsPage : ContentPage
             PhoneEntry.Text = staff.Phone;
         }
     }
+    // Event handlers for the buttons on the StaffDetailsPage
     private void OnEditClicked(object sender, EventArgs e)
     {
         // Enable editing
@@ -41,6 +46,11 @@ public partial class StaffDetailsPage : ContentPage
         ((Button)sender).IsVisible = false;
         SaveButton.IsVisible = true;
     }
+    //This method saves the updated staff details to the database and disables editing.
+    /*
+     * One note is i haven't implemented validation for fields , so the user can save empty fields it will give an error in the database.
+     * In the mean time just assume all fields have to be filled out.
+     */
     private async void OnSaveClickedAsync(object sender, EventArgs e)
     {
         // Update the staff details in the database
@@ -64,28 +74,38 @@ public partial class StaffDetailsPage : ContentPage
         // Show the Edit button
         ((Button)sender).IsVisible = false;
         EditButton.IsVisible = true;
-
+        // Show a popup message to indicate that the staff details have been saved
         PopupMessageFrame.IsVisible = true;
         await Task.Delay(2000);
         PopupMessageFrame.IsVisible = false;
     }
+    //This method deletes the staff from the database and navigates back to the Staff Directory page.
+    private async void OnDeleteStaffClicked(object sender, EventArgs e)
+    {
+        // Show a confirmation dialog before deleting the staff
+        bool confirm = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this staff?", "Yes", "No");
+        if (confirm)
+        {
+            // Delete the staff from the database
+            _database.DeleteStaff(_staffID);
+            await DisplayAlert("Deleted", "Staff deleted successfully", "OK");
+            // Navigate back to the Staff Directory page
+            await Navigation.PopAsync(); 
+        }
+    }
+    // Event handlers for the buttons on the StaffDetailsPage
     private void OnGoToHomeClicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MainPage());
     }
-    private void OnGoToStaffDirectoryClicked(object sender, EventArgs e)
+    private void OnStaffDirectoryClicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new StaffDirectoryPage());
     }
-    private async void OnDeleteStaffClicked(object sender, EventArgs e)
+    private void OnSettingsClicked(object sender, EventArgs e)
     {
-        bool confirm = await DisplayAlert("Confirm Delete", "Are you sure you want to delete this staff?", "Yes", "No");
-        if (confirm)
-        {
-            _database.DeleteStaff(_staffID);
-            await DisplayAlert("Deleted", "Staff deleted successfully", "OK");
-            await Navigation.PopAsync(); // Navigate back to the Staff Directory page
-        }
+        Navigation.PushAsync(new SettingsPage());
     }
+    
 
 }

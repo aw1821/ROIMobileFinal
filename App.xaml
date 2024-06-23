@@ -8,11 +8,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary>
+                    <x:Double x:Key="GlobalFontSize">14</x:Double>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-            <Style x:Key="HighlightedButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Black" />
-                <Setter Property="TextColor" Value="White" />
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -8,7 +8,7 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
-
+    // Event handlers for the buttons on the main page
     private void OnHomeClicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new MainPage());
@@ -26,6 +26,6 @@ public partial class MainPage : ContentPage
 
     private void OnSettingsClicked(object sender, EventArgs e)
     {
-        // Navigation.PushAsync(new SettingsPage());
+        Navigation.PushAsync(new SettingsPage());
     }
 }

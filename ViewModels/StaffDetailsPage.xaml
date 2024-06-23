@@ -54,9 +54,9 @@
         </Grid>
         <StackLayout Orientation="Horizontal" BackgroundColor="LightGray" VerticalOptions="End" Grid.Row="2">
             <Button Text="Home" BackgroundColor="Maroon" Clicked="OnGoToHomeClicked" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Staff Directory" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Staff Directory" BackgroundColor="Maroon" Clicked="OnStaffDirectoryClicked" HorizontalOptions="FillAndExpand"/>
             <Button Text="Add Staff" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Settings" BackgroundColor="Maroon" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Settings" BackgroundColor="Maroon" Clicked="OnSettingsClicked" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
 

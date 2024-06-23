@@ -4,11 +4,15 @@
              xmlns:vm="clr-namespace:ROIMobileFinal.ViewModels"
              x:Class="ROIMobileFinal.SettingsPage">
 
-
+	<ContentPage.BindingContext>
+		<vm:SettingsViewModel />
+	</ContentPage.BindingContext>
+	<!-- Main Settings Page -->
 	<StackLayout Padding="10">
-		<Label Text="Select Theme:" FontSize="Medium" />
-		<Picker ItemsSource="{Binding Themes}"
-                ItemDisplayBinding="{Binding Name}"
-                SelectedItem="{Binding SelectedTheme}" />
+		<Label Text="Font Size:" FontSize="Medium" />
+		<Slider Minimum="10" Maximum="100" Value="{Binding FontSize}" />
+        <Label Text="This is an example" FontSize="{DynamicResource GlobalFontSize}" />
+		<Label Text="{Binding FontSize}" FontSize="{Binding FontSize}" />
+		<Button Text="Save" Command="{Binding SaveSettingsCommand}" />
 	</StackLayout>
 </ContentPage>
