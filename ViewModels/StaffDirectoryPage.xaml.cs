@@ -51,14 +51,6 @@ public partial class StaffDirectoryPage : ContentPage
     {
         Navigation.PushAsync(new MainPage());
     }
-
-    // Event handler for the Delete Database button
-    private void OnDeleteDatabaseClicked(object sender, EventArgs e)
-    {
-        var database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "staff.db"));
-        // Delete the database file using the DeleteDatabase method from the Database class
-        database.DeleteDatabase();
-    }
     // Event handler for the Refresh button
     protected override void OnAppearing()
     {
